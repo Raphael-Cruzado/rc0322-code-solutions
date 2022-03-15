@@ -9,35 +9,46 @@
 <body>
   <h1>Coding Form!</h1>
   <form action="get">
-    <p>Email</p>
-    <label for="email">
+    <label id="email">Email
+      <br>
       <input type="text" name="email">
     </label>
+    <br>
+    <br>
 
-    <p>Why is coding cool?</p>
-    <select name="reasons" id="languages">
-      <option value="interesting">Because it's interesting</option>
-      <option value="fun">Because it's fun</option>
-      <option value="?">Because it's powerful</option>
-    </select>
+    <label id="reasons">Why is coding cool?
+      <br>
+      <select name="reasons" id="languages">
+        <option value="interesting">Because it's interesting</option>
+        <option value="fun">Because it's fun</option>
+        <option value="?">Because it's powerful</option>
+      </select>
+    </label>
+    <br>
+    <br>
 
-    <p>Favorite Language (choose one)</p>
+    <label for="languages">Favorite Language (choose one)</label>
+    <br>
     <label for="languages">
       <input type="radio" name="languages" value="HTML">HTML
+    </label>
+    <label for="languages">
       <input type="radio" name="languages" value="CSS">CSS
+    </label>
+    <label for="languages">
       <input type="radio" name="languages" value="JavaScript">JavaScript
     </label>
+    <br>
+    <br>
 
-    <p>Would you like to sign up for more information?</p>
-    <label for="registration">
-      <input type="checkbox" name="registration" value="Sign me up!"> Sign me up!
+    <label id="registration">Would you like to sign up for more information?
+      <input type="checkbox" name="registration" value="Sign me up!">Sign me up!
     </label>
 
     <p>Comments</p>
     <textarea name="comment" id="comment" cols="30" rows="10"></textarea>
-    <br/>
+    <br>
     <button>Submit</button>
   </form>
-
 </body>
 </html>
