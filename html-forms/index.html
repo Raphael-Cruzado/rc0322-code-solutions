@@ -4,13 +4,15 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Coding Form</title>
 </head>
 <body>
   <h1>Coding Form!</h1>
   <form action="get">
     <p>Email</p>
-    <input type="text">
+    <label for="email">
+      <input type="text" name="email">
+    </label>
 
     <p>Why is coding cool?</p>
     <select name="reasons" id="languages">
@@ -20,12 +22,16 @@
     </select>
 
     <p>Favorite Language (choose one)</p>
-    <input type="radio" name="languages" value="HTML" >HTML
-    <input type="radio" name="languages" value="CSS">CSS
-    <input type="radio" name="languages" value="JavaScript">JavaScript
+    <label for="languages">
+      <input type="radio" name="languages" value="HTML">HTML
+      <input type="radio" name="languages" value="CSS">CSS
+      <input type="radio" name="languages" value="JavaScript">JavaScript
+    </label>
 
     <p>Would you like to sign up for more information?</p>
-    <input type="checkbox" name="registration" value="Sign me up!"> Sign me up!
+    <label for="registration">
+      <input type="checkbox" name="registration" value="Sign me up!"> Sign me up!
+    </label>
 
     <p>Comments</p>
     <textarea name="comment" id="comment" cols="30" rows="10"></textarea>
