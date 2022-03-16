@@ -1,0 +1,17 @@
+button:hover {
+  background-color: black;
+  color: white;
+}
+
+table {
+  border: white;
+}
+
+thead {
+  background-color: black;
+  color: white;
+}
+
+tr:nth-child(2n) {
+  background-color: gainsboro;
+}
