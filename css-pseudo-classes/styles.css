@@ -1,0 +1,22 @@
+button {
+  font-size: 23px;
+}
+
+button:hover {
+  background-color: black;
+  color: white;
+  font-size: 23px;
+}
+
+table {
+  border: white;
+}
+
+th {
+  background-color: black;
+  color: white;
+}
+
+tr:nth-child(2n+1) {
+  background-color: gainsboro;
+}
