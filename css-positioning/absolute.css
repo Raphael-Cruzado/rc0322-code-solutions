@@ -25,10 +25,11 @@
   color: white;
   -webkit-text-stroke: 1px black;
   text-transform: uppercase;
-  position: relative;
+  position: absolute;
+  top: 10rem;
 }
 
 .overlay {
   background: linear-gradient(transparent, rgb(0 0 0 / 75%));
-  position: relative;
+  position: absolute;
 }
