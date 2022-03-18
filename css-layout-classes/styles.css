@@ -1,0 +1,41 @@
+body {
+  font-family: sans-serif;
+}
+
+.container {
+  max-width: 800px;
+  margin: auto;
+}
+
+.row-1 {
+  display: flex;
+}
+
+.column-one-third {
+  flex-basis: calc(100% / 3);
+}
+
+.row-2 {
+  display: flex;
+  justify-content: center;
+}
+
+.column-one-fourth {
+  flex-basis: calc(100% / 4);
+}
+
+img {
+  width: 100%;
+}
+
+.row-3 {
+  display: flex;
+}
+
+.column-two-third {
+  flex-basis: calc(200% / 3);
+}
+
+.row-4 {
+  display: flex;
+}
