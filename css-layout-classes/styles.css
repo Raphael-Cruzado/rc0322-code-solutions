@@ -24,18 +24,18 @@ body {
   flex-basis: calc(100% / 4);
 }
 
+img {
+  width: 100%;
+}
+
 .row-3 {
   display: flex;
 }
 
 .column-two-third {
-  flex-basis: calc(100% / 3);
+  flex-basis: calc(200% / 3);
 }
 
 .row-4 {
   display: flex;
-}
-
-.column-three-third {
-  flex-basis: calc(100% / 3);
 }
