@@ -1,0 +1,52 @@
+* {
+  font-family: sans-serif;
+}
+
+.container {
+  color: antiquewhite;
+  flex-flow: row wrap;
+  background-color: #008cff;
+}
+
+.row-1 {
+  display: flex;
+  justify-content: center;
+}
+
+.row-2 {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.row-3 {
+  display: flex;
+  justify-content: center;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.circle-image {
+  background-color: white;
+  border-radius: 100%;
+  width: 7rem;
+  height: 7rem;
+  display: flex;
+  justify-content: center;
+}
+
+img {
+  width: 4rem;
+  height: 4rem;
+  align-self: center;
+}
+
+.text-content {
+  /* flex-basis: calc(100% / 3); */
+  max-width: 100%;
+  text-align: center;
+}
