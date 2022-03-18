@@ -11,8 +11,8 @@ body {
   display: flex;
 }
 
-.column-1 {
-  width: 100%;
+.column-one-third {
+  flex-basis: calc(100% / 3);
 }
 
 .row-2 {
@@ -20,7 +20,7 @@ body {
   justify-content: center;
 }
 
-.column-2 {
+.column-one-fourth {
   flex-basis: calc(100% / 4);
 }
 
@@ -28,14 +28,14 @@ body {
   display: flex;
 }
 
-.column-3 {
-  width: 100%;
+.column-two-third {
+  flex-basis: calc(100% / 3);
 }
 
 .row-4 {
   display: flex;
 }
 
-.column-4 {
-  width: 100%;
+.column-three-third {
+  flex-basis: calc(100% / 3);
 }
