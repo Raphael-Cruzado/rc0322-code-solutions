@@ -25,13 +25,12 @@
 .row-2 {
   display: flex;
   flex-direction: column;
-  width: auto;
 }
 
 .column-two-third {
   display: flex;
   flex-direction: row;
-  max-width: 90%;
+  flex-basis: calc(200% / 3);
   align-self: center;
 }
 
