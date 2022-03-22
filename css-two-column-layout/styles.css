@@ -25,6 +25,7 @@
 .row-2 {
   display: flex;
   flex-direction: column;
+  width: auto;
 }
 
 .column-two-third {
