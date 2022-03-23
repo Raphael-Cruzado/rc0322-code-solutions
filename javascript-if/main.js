@@ -35,7 +35,7 @@ function startsWithJ(string) {
 
 function isOldEnoughToDrink(person) {
   var age = person.age;
-  if (age <= 21) {
+  if (age < 21 || person < 21) {
     return false;
   } else {
     return true;
@@ -44,7 +44,7 @@ function isOldEnoughToDrink(person) {
 
 function isOldEnoughToDrive(person) {
   var age = person.age;
-  if (age <= 16) {
+  if (age < 16 || person < 16) {
     return false;
   } else {
     return true;
@@ -56,7 +56,7 @@ function isOldEnoughToDrinkAndDrive(person) {
 }
 
 function categorizeAcidity(pH) {
-  if (pH < 7) {
+  if (pH < 7 && pH > 0) {
     return 'acid';
   } else if (pH === 7) {
     return 'neutral';
