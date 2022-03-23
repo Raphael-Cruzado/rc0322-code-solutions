@@ -35,7 +35,7 @@ function startsWithJ(string) {
 
 function isOldEnoughToDrink(person) {
   var age = person.age;
-  if (age < 21 || person < 21) {
+  if (age < 21) {
     return false;
   } else {
     return true;
@@ -44,7 +44,7 @@ function isOldEnoughToDrink(person) {
 
 function isOldEnoughToDrive(person) {
   var age = person.age;
-  if (age < 16 || person < 16) {
+  if (age < 16) {
     return false;
   } else {
     return true;
