@@ -90,9 +90,12 @@ hr {
 }
 
 .prefer-wrapper {
+  align-self: center;
   background-color: rgb(245 245 245);
-  margin-left: 13rem;
-  margin-right: 13rem;
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+  width: 75%;
+  height: 27rem;
 }
 
 .prefer-title {
@@ -108,7 +111,7 @@ hr {
 .prefer-title > p {
   width: 30rem;
   text-align: center;
-  line-height: 26px;
+  line-height: 28px;
 }
 
 .prefer-row-1 {
@@ -116,6 +119,7 @@ hr {
   flex-direction: row;
   justify-content: space-evenly;
   line-height: 2.5rem;
+  font-size: large;
 }
 
 .prefer-column-1 > ul {
