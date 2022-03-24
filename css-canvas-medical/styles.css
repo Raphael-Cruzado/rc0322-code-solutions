@@ -219,6 +219,7 @@ hr {
   display: flex;
   flex-direction: row;
   justify-content: center;
+  width: calc(153% / 3);
 }
 
 .footer-2-wrapper {
