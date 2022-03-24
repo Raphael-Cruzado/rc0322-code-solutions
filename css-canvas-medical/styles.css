@@ -219,13 +219,16 @@ hr {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  width: calc(153% / 3);
 }
 
 .footer-2-wrapper {
   display: flex;
   flex-direction: row;
-  justify-content: flex-start;
+  width: calc(225% / 3);
+  background-color: rgb(245 245 245);
+  padding-left: 4rem;
+  padding-top: 12px;
+  padding-bottom: 12px;
 }
 
 .footer-2-wrapper > p {
