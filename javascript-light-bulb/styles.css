@@ -1,0 +1,42 @@
+body {
+  margin-top: 35rem;
+  width: 100%;
+  height: 100%;
+}
+
+.row {
+  display: flex;
+  justify-content: center;
+}
+
+.circle {
+  border-radius: 100%;
+  width: 30rem;
+  height: 30rem;
+  background-color: yellow;
+  box-shadow:
+    0 0 0 #fff,
+    0 0 0 #fff,
+    0 0 0 #fff,
+    0 0 35px yellow,
+    0 0 20px yellow,
+    0 0 10px yellow,
+    0 0 5px yellow,
+    0 0 0 yellow;
+}
+
+.circle-2 {
+  border-radius: 100%;
+  width: 30rem;
+  height: 30rem;
+  background-color: rgb(43 43 43);
+  box-shadow: 0 -20px 0 11px rgb(0 0 0);
+}
+
+.room {
+  background-color: rgb(255 253 240);
+}
+
+.dim-room {
+  background-color: rgb(128 128 128);
+}
