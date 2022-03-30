@@ -1,0 +1,42 @@
+* {
+  font-family: sans-serif;
+}
+
+.container-text {
+  margin-top: 33rem;
+}
+
+.span-row {
+  display: flex;
+  justify-content: center;
+}
+
+.span-content {
+  font-size: 3rem;
+  font-weight: 900;
+}
+
+.padding-left {
+  padding-left: 2rem;
+}
+
+.under-line {
+  color: black;
+  text-decoration: underline;
+  text-underline-offset: 16px;
+  text-decoration-thickness: 7px;
+}
+
+.correct {
+  color: green;
+  text-decoration: underline;
+  text-underline-offset: 16px;
+  text-decoration-thickness: 7px;
+}
+
+.incorrect {
+  color: red;
+  text-decoration: underline;
+  text-underline-offset: 16px;
+  text-decoration-thickness: 7px;
+}
