@@ -12,4 +12,5 @@ function submitInfo(event) {
   var text = $text.value;
   var infoObj = { name, email, text };
   console.log(infoObj);
+  $form1.reset();
 }
