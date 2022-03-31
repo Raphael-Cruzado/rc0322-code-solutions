@@ -87,13 +87,11 @@ function renderPokemon(pokemon) {
   cardText.appendChild(parDes);
   parDes.textContent = pokemon.description;
 
-  console.log($row.appendChild(columnThird));
+  $row.appendChild(columnThird);
 
 }
 
-// for (let i = 0; i < pokedex.length; i++) {
-//   var pokeCount = pokedex[i];
-//   renderPokemon(pokedex[pokeCount]);
-// }
-
-console.log(renderPokemon(pokedex[5]));
+for (let i = 0; i < pokedex.length; i++) {
+  var pokeCount = pokedex[i];
+  renderPokemon(pokeCount);
+}
