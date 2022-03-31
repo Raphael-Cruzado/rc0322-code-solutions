@@ -63,9 +63,7 @@ columnThird.setAttribute('class', 'column-third');
 var pokemonCard = document.createElement('div');
 var cardText = document.createElement('div');
 var h2El = document.createElement('h2');
-
 var h3El = document.createElement('h3');
-
 var parDes = document.createElement('p');
 
 function renderPokemon(pokemon) {
