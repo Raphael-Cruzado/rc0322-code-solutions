@@ -57,18 +57,17 @@ var pokedex = [
   }
 ];
 
-var columnThird = document.createElement('div');
-columnThird.setAttribute('class', 'column-third');
-
-var pokemonCard = document.createElement('div');
-var pokeImage = document.createElement('img');
-var cardText = document.createElement('div');
-var h2El = document.createElement('h2');
-var h3El = document.createElement('h3');
-var parDes = document.createElement('p');
-var $row = document.querySelector('.row');
-
 function renderPokemon(pokemon) {
+  var columnThird = document.createElement('div');
+  var pokemonCard = document.createElement('div');
+  var pokeImage = document.createElement('img');
+  var cardText = document.createElement('div');
+  var h2El = document.createElement('h2');
+  var h3El = document.createElement('h3');
+  var parDes = document.createElement('p');
+
+  columnThird.setAttribute('class', 'column-third');
+
   pokemonCard.setAttribute('class', 'pokemon-card');
   columnThird.appendChild(pokemonCard);
 
@@ -87,11 +86,14 @@ function renderPokemon(pokemon) {
   cardText.appendChild(parDes);
   parDes.textContent = pokemon.description;
 
-  $row.appendChild(columnThird);
-
+  return columnThird;
 }
 
+renderPokemon(pokedex[0]);
+
+var $row = document.querySelector('.row');
+
 for (let i = 0; i < pokedex.length; i++) {
-  var pokeCount = pokedex[i];
-  renderPokemon(pokeCount);
+  var newObj = renderPokemon(pokedex[i]);
+  $row.appendChild(newObj);
 }
