@@ -23,13 +23,12 @@
 .under-line {
   color: black;
   text-decoration: underline;
-  text-underline-offset: 16px;
+  text-underline-offset: 17px;
   text-decoration-thickness: 7px;
 }
 
 .correct {
   color: green;
-  text-decoration: underline;
   text-underline-offset: 16px;
   text-decoration-thickness: 7px;
 }
@@ -39,4 +38,16 @@
   text-decoration: underline;
   text-underline-offset: 16px;
   text-decoration-thickness: 7px;
+}
+
+@media screen and (max-width: 1900px) {
+  .span-content {
+    font-size: 37px;
+  }
+}
+
+@media screen and (max-width: 1700px) {
+  .span-content {
+    font-size: 30px;
+  }
 }
