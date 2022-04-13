@@ -29,7 +29,6 @@ Account.prototype.getBalance = function () {
   var deposits = [];
   var withdrawals = [];
   for (let i = 0; i < this.transactions.length; i++) {
-    console.log(this.transactions[i]);
     if (this.transactions[i].type === 'deposit') {
       deposits.push(this.transactions[i]);
     } else if (this.transactions[i].type === 'withdrawal') {
