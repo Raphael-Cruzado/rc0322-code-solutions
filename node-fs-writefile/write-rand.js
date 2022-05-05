@@ -5,7 +5,7 @@ let data = randomNum.toString();
 
 fs.writeFile('random.txt', data, err => {
   if (err) {
-    console.log(err);
+    throw err;
   } else {
     data = (`${data}\n`);
   }
