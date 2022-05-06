@@ -7,5 +7,4 @@ app.listen(3000, () => {
 
 app.use((req, res, next) => {
   res.send('Hello World');
-  next();
 });
