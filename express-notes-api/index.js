@@ -1,4 +1,5 @@
 const express = require('express');
+const fs = require('fs');
 const app = express();
 const data = require('./data.json');
 
@@ -27,17 +28,40 @@ app.get('/api/notes/:id/', (req, res) => {
 
 app.post('/api/notes/', (req, res, err) => {
   if (!req.body.content) {
-    res.status(400).json({ error: 'content is a redquired field' });
-  } else if (req.body.content !== null) {
+    res.status(400).json({ error: 'content is a required field' });
+  } else {
     const newData = req.body;
     const id = dataNextId++;
     newData.id = id;
     dataNotes[id] = newData;
-    res.status(201).json(newData);
-  } else {
-    res.status(500).json({ error: 'An unexpected error occured' });
+    fs.writeFile('./data.json', JSON.stringify(data, null, 2), err => {
+      if (err) {
+        res.status(500).json({ error: 'An unexpected error occured' });
+      } else {
+        res.status(201).json(newData);
+      }
+    });
+  }
+});
+
+app.put('/api/notes/:id/', (req, res, err) => {
+  const id = Number(req.params.id);
+  const content = req.body.content;
+
+  if (id < 0 || !id) {
+    res.status(400).json({ error: 'id must be a positive integer' });
+  } else if (content === null) {
+    res.status(400).json({ content: 'content is a required field' });
   }
 
+  // else if (content !== null)
+  // else if (content === null) {
+  //   console.log(content);
+  // }
+  // else if (!content) {
+  //   res.status(400).json({ error: `cannot find note with ${content}` });
+  //   console.log(content);
+  // }
 });
 
 app.listen(3000, () => {
