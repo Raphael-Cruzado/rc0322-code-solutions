@@ -1,2 +1,2 @@
-select "actorId", "firstName", "lastName", "updatedAt"
+select *
 from "actors";
