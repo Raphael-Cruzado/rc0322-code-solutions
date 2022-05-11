@@ -51,6 +51,10 @@ app.post('/api/notes/', (req, res, err) => {
   });
 });
 
+app.delete('./data.json/:id', (req, res) => {
+
+});
+
 // app.put('/api/notes/:id/', (req, res, err) => {
 //   const id = Number(req.params.id);
 //   const content = req.body.content;
