@@ -51,8 +51,22 @@ app.post('/api/notes/', (req, res, err) => {
   });
 });
 
-app.delete('./data.json/:id', (req, res) => {
-
+app.delete('/api/notes/:id', (req, res) => {
+  const id = Number(req.params.id);
+  if (id < 1 || Number.isNaN(id)) {
+    res.status(404).json({ error: 'id must be a positive integer' });
+  } else if (dataNotes[id] === undefined) {
+    res.status(404).json({ error: `cannot find note with id ${id}` });
+  } else {
+    delete dataNotes[id];
+    fs.writeFile('data.json', JSON.stringify(data, null, 2), err => {
+      if (err) {
+        res.status(500).json({ error: 'an unexpected error occured' });
+      } else {
+        res.sendStatus(204);
+      }
+    });
+  }
 });
 
 // app.put('/api/notes/:id/', (req, res, err) => {
