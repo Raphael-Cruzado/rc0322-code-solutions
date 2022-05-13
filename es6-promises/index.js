@@ -1,8 +1,8 @@
 const takeAChance = require('./take-a-chance');
 const p = takeAChance('Lance');
 
-p.then(message => {
-  console.log(message);
-}).catch(message => {
-  console.error(message);
+p.then(resolve => {
+  console.log(resolve);
+}).catch(error => {
+  console.error(error.message);
 });
