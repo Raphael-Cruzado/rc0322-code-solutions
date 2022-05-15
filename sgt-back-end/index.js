@@ -9,11 +9,7 @@ const db = new pg.Pool({
   }
 });
 
-// app.use('/api/grades', express.json());
-
-app.post('/api/grades', (req, res) => {
-// look at insert psql exercise
-});
+app.use('/api/grades', express.json());
 
 app.get('/api/grades', (req, res) => {
   const sql = `
@@ -61,6 +57,28 @@ app.get('/api/grades/:gradeId', (req, res) => {
     .catch(err => {
       // eslint-disable-next-line
       console.log(err);
+      res.status(500).json({ error: 'An unexpected error occured' });
+    });
+});
+
+app.post('/api/grades', (req, res) => {
+  const sql = `
+  select *
+  from "grades"
+  returning *
+  `;
+  const newGrade = req.body;
+  db.query(newGrade)
+    .then(result => {
+      const grade = result.rows;
+      grade.push(newGrade);
+      console.log(grade);
+      res.status(201).json(grade);
+    })
+    .catch(err => {
+      // eslint-disable-next-line
+      // res.status(400).json({ error: 'invalid input'});
+      console.error(err);
       res.status(500).json({ error: 'An unexpected error occured' });
     });
 });
