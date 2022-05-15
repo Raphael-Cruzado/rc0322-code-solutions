@@ -9,32 +9,26 @@ const db = new pg.Pool({
   }
 });
 
-app.get('api/grades', (req, res, err) => {
-  if (err) {
-    res.status(500).json({ error: 'unable to process query' });
-  }
+// app.use('/api/grades', express.json());
 
+app.post('/api/grades', (req, res) => {
+// look at insert psql exercise
+});
+
+app.get('/api/grades', (req, res) => {
   const sql = `
-  select "gradeId",
-        "name",
-        "course",
-        "score",
-        "createdAt"
+  select *
   from "grades"
   `;
 
   db.query(sql)
     .then(result => {
       const grade = result.rows;
-      if (!grade) {
-        res.status(404).json({ error: 'Cannot find grade table' });
-      } else {
-        res.status(200).json(grade);
-      }
+      res.status(200).json(grade);
     })
     .catch(err => {
       // eslint-disable-next-line
-      console.log(err);
+      console.error(err);
       res.status(500).json({ error: 'An unexpected error occured' });
     });
 });
