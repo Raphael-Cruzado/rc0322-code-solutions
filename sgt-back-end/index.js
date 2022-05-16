@@ -61,10 +61,8 @@ app.get('/api/grades/:gradeId', (req, res) => {
     });
 });
 
-// i want it to post gradeId in order, it pick up from wherever it left off: (array.length - 1)?
 app.post('/api/grades', (req, res) => {
   const content = req.body;
-  // create if statement for errors
   if (!content.name || !content.course) {
     res.status(400).json({ error: 'name and course are required fields' });
     return;
@@ -72,10 +70,10 @@ app.post('/api/grades', (req, res) => {
   const score = Number(content.score);
   if (isNaN(score) || !Number.isInteger(score)) {
     res.status(400).json({});
+  } else if (content.score < 1 || content.score > 100) {
+    res.status(400).json({ error: '"score" must be 1 - 100' });
   }
-  if (content.score > 1 && content.score < 100) {
-    res.status(400).json({ error: `${content.score} must be 1 - 100` });
-  }
+
   const sql = `
   insert into "grades" ("name", "course", "score")
   values ($1, $2, $3)
@@ -85,7 +83,6 @@ app.post('/api/grades', (req, res) => {
   db.query(sql, params)
     .then(result => {
       const grade = result.rows[0];
-      console.log(grade);
       res.status(201).json(grade);
     })
     .catch(err => {
@@ -97,6 +94,9 @@ app.post('/api/grades', (req, res) => {
 
 app.delete('/api/grades/:gradeId', (req, res) => {
   const gradeId = Number(req.params.gradeId);
+  if (isNaN(gradeId) || !Number.isInteger(gradeId)) {
+    res.status(400).json({ error: '"gradeId" must be an integer' });
+  }
   const sql = `
   delete from "grades"
   where "gradeId" = $1
@@ -107,7 +107,7 @@ app.delete('/api/grades/:gradeId', (req, res) => {
   const params = [gradeId];
   db.query(sql, params)
     .then(result => {
-      res.status(200);
+      res.status(200).json(result.rows[0]);
     })
     .catch(err => {
       // eslint-disable-next-line
