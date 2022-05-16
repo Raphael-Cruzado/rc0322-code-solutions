@@ -61,23 +61,47 @@ app.get('/api/grades/:gradeId', (req, res) => {
     });
 });
 
+// i want it to post gradeId in order, it pick up from wherever it left off: (array.length - 1)?
 app.post('/api/grades', (req, res) => {
+  const content = req.body;
+  // create if statement for errors
+  if (content.score > 1 && content.score < 100) {
+    res.status(400).json({ error: `${content.score} must be 1 - 100` });
+  }
   const sql = `
-  select *
-  from "grades"
+  insert into "grades" ("name", "course", "score")
+  values ('${content.name}', '${content.course}', '${content.score}')
   returning *
   `;
-  const newGrade = req.body;
-  db.query(newGrade)
+  db.query(sql)
     .then(result => {
       const grade = result.rows;
-      grade.push(newGrade);
-      console.log(grade);
+      console.log(result.rows);
       res.status(201).json(grade);
     })
     .catch(err => {
       // eslint-disable-next-line
-      // res.status(400).json({ error: 'invalid input'});
+      console.error(err);
+      res.status(500).json({ error: 'An unexpected error occured' });
+    });
+});
+
+app.delete('/api/grades/:gradeId', (req, res) => {
+  const gradeId = Number(req.params.gradeId);
+  const sql = `
+  delete from "grades"
+  where "gradeId" = $1
+  returning *;
+  `;
+
+  // create statuses
+  const params = [gradeId];
+  db.query(sql, params)
+    .then(result => {
+      res.status(200);
+    })
+    .catch(err => {
+      // eslint-disable-next-line
       console.error(err);
       res.status(500).json({ error: 'An unexpected error occured' });
     });
