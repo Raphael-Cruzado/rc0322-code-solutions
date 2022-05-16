@@ -65,18 +65,27 @@ app.get('/api/grades/:gradeId', (req, res) => {
 app.post('/api/grades', (req, res) => {
   const content = req.body;
   // create if statement for errors
+  if (!content.name || !content.course) {
+    res.status(400).json({ error: 'name and course are required fields' });
+    return;
+  }
+  const score = Number(content.score);
+  if (isNaN(score) || !Number.isInteger(score)) {
+    res.status(400).json({});
+  }
   if (content.score > 1 && content.score < 100) {
     res.status(400).json({ error: `${content.score} must be 1 - 100` });
   }
   const sql = `
   insert into "grades" ("name", "course", "score")
-  values ('${content.name}', '${content.course}', '${content.score}')
+  values ($1, $2, $3)
   returning *
   `;
-  db.query(sql)
+  const params = [content.name, content.course, content.score];
+  db.query(sql, params)
     .then(result => {
-      const grade = result.rows;
-      console.log(result.rows);
+      const grade = result.rows[0];
+      console.log(grade);
       res.status(201).json(grade);
     })
     .catch(err => {
