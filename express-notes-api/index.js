@@ -70,7 +70,7 @@ app.delete('/api/notes/:id', (req, res) => {
   }
 });
 
-app.put('/api/notes/:id', (req, res, err) => {
+app.put('/api/notes/:id', (req, res) => {
   const id = Number(req.params.id);
   const content = req.body.content;
 
