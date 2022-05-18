@@ -73,7 +73,6 @@ app.post('/api/grades', (req, res) => {
   } else if (content.score < 1 || content.score > 100) {
     res.status(400).json({ error: '"score" must be 1 - 100' });
   }
-
   const sql = `
   insert into "grades" ("name", "course", "score")
   values ($1, $2, $3)
@@ -92,6 +91,36 @@ app.post('/api/grades', (req, res) => {
     });
 });
 
+app.put('/api/grades/:gradeId', (req, res) => {
+  const gradeId = Number(req.params.gradeId);
+  const content = req.body;
+  if (isNaN(gradeId) || !Number.isInteger(gradeId)) {
+    res.status(400).json({ error: '"gradeId" must be an integer' });
+  } else if (!content.name || !content.course) {
+    res.status(400).json({ error: 'name and course are required fields' });
+  }
+  const sql = `
+  update "grades"
+  set "name" = $1,
+      "course" = $2,
+      "score" = $3
+  where "gradeId" = $4
+  `;
+  const params = [content.name, content.course, content.score, gradeId];
+  db.query(sql, params)
+    .then(result => {
+      const grade = result.row;
+      if (!grade) {
+        res.status(404).json({ error: `gradeId: ${gradeId} does not exist in database` });
+      }
+      res.status(200).json(grade);
+    })
+    .catch(err => {
+      console.error(err);
+      res.status(500).json({ error: 'An unexpected error occured' });
+    });
+});
+
 app.delete('/api/grades/:gradeId', (req, res) => {
   const gradeId = Number(req.params.gradeId);
   if (isNaN(gradeId) || !Number.isInteger(gradeId)) {
@@ -102,12 +131,16 @@ app.delete('/api/grades/:gradeId', (req, res) => {
   where "gradeId" = $1
   returning *;
   `;
-
   // create statuses
   const params = [gradeId];
   db.query(sql, params)
     .then(result => {
-      res.status(200).json(result.rows[0]);
+      const grade = result.rows[0];
+      if (!grade) {
+        res.status(404).json({ error: `Cannot find grade with "gradeId": ${gradeId}` });
+      } else {
+        res.status(204).json(grade);
+      }
     })
     .catch(err => {
       // eslint-disable-next-line
