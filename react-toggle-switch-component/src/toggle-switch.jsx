@@ -3,7 +3,7 @@ import React from 'react';
 class ToggleSwitch extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { switch: 'On' };
+    this.state = { switch: 'Off' };
   }
 
   switchClick() {
@@ -15,10 +15,10 @@ class ToggleSwitch extends React.Component {
   }
 
   render() {
-    let switchText = 'On';
-    if (this.state.switch === 'Off') {
+    let switchText = '';
+    if (this.state.switch === 'On') {
       switchText = 'On';
-    } else if (this.state.switch === 'On') {
+    } else if (this.state.switch === 'Off') {
       switchText = 'Off';
     }
     return (
