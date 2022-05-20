@@ -1,0 +1,32 @@
+button {
+  width: 8rem;
+  height: 5rem;
+}
+
+.no-clicks {
+  background-color: #a9a9a9;
+}
+
+.purple-btn {
+  background-color: #351c75;
+}
+
+.violet-btn {
+  background-color: #674ea7;
+}
+
+.salmon-btn {
+  background-color: #e06666;
+}
+
+.orange-btn {
+  background-color: #f6b26b;
+}
+
+.yellow-btn {
+  background-color: #ff0;
+}
+
+.white-btn {
+  background-color: #fff;
+}
