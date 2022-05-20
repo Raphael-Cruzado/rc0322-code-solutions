@@ -1,0 +1,26 @@
+.container {
+  margin-top: 50%;
+}
+
+.circle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  width: 15rem;
+  height: 15rem;
+  padding: 10px;
+  background: #fff;
+  border: 3px solid #000;
+  color: #000;
+  text-align: center;
+  font:
+    32px Arial,
+    sans-serif;
+  margin-bottom: 1rem;
+}
+
+.icon {
+  display: flex;
+  justify-content: center;
+}
