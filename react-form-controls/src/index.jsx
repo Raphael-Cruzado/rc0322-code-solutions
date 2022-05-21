@@ -23,13 +23,13 @@ class RegistrationForm extends React.Component {
   render() {
     return (
       <form onSubmit={this.handleSubmit.bind(this)}>
-        <label> username:
-          <input type="text" value={this.state.username} onChange={this.userNameChange.bind(this)} />
+        <label name="username"> username:
+          <input name="username" type="text" value={this.state.username} onChange={this.userNameChange.bind(this)} />
         </label>
-        <label> password:
-          <input type="password" value={this.state.pw} onChange={this.pwChange.bind(this)} />
+        <label name="password"> password:
+          <input name="password" type="password" value={this.state.pw} onChange={this.pwChange.bind(this)} />
         </label>
-        <button>Sign Up</button>
+        <button name="signUpBtn">Sign Up</button>
       </form>
     );
   }
