@@ -1,0 +1,22 @@
+* {
+  font-family: sans-serif;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 11rem;
+}
+
+.label {
+  margin-bottom: 4px;
+}
+
+.input {
+  display: flex;
+  justify-content: space-between;
+}
+
+#check {
+  width: 10rem;
+}
