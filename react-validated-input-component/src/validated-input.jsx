@@ -1,6 +1,5 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { solid } from '@fortawesome/fontawesome-svg-core/import.macro';
 import { faCheck, faTimes } from '@fortawesome/free-solid-svg-icons';
 
 class ValidatedInput extends React.Component {
@@ -10,21 +9,33 @@ class ValidatedInput extends React.Component {
   }
 
   handleIcon() {
-
   }
 
-  handlePwChange() {
+  handlePwChange(e) {
+    this.setState({ pw: e.target.value });
 
   }
 
   handleSubmit(e) {
     e.preventDefault();
     // eslint-disable-next-line
-    console.log(this.state.pw);
+    console.log(this.state);
+    const text = this.state.pw;
+    const length = text.length;
+    if (length <= 8) {
+      this.setState({ icon: faTimes });
+    } else {
+      this.setState({ icon: faCheck });
+    }
   }
 
   render() {
-    const iconColor = 'green';
+    let iconColor = 'green';
+    if (this.state.icon.iconName === 'xmark') {
+      iconColor = 'red';
+    } else if (this.state.icon.iconName === 'check') {
+      iconColor = 'green';
+    }
     return (
       <form onSubmit={this.handleSubmit.bind(this)}>
         <div className='container'>
@@ -36,9 +47,7 @@ class ValidatedInput extends React.Component {
             <FontAwesomeIcon icon={this.state.icon} color={iconColor} id="check" />
           </div>
         </div>
-
       </form>
-
     );
   }
 }
