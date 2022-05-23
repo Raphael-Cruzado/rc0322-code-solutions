@@ -8,9 +8,6 @@ class ValidatedInput extends React.Component {
     this.state = { pw: '', icon: faCheck };
   }
 
-  handleIcon() {
-  }
-
   handlePwChange(e) {
     this.setState({ pw: e.target.value });
 
