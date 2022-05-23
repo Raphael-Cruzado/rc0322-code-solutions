@@ -43,7 +43,7 @@ class ValidatedInput extends React.Component {
             <label> <strong>Password:</strong> </label>
           </div>
           <div className='input'>
-            <input type="password" onChange={this.handlePwChange.bind(this)} value={this.state.pw} />
+            <input name="password" type="password" onChange={this.handlePwChange.bind(this)} value={this.state.pw} />
             <FontAwesomeIcon icon={this.state.icon} color={iconColor} id="check" />
           </div>
         </div>
