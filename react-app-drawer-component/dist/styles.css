@@ -11,10 +11,6 @@
   background-color: rgb(0 0 0 / 40%);
 }
 
-.modal-after {
-  display: block;
-}
-
 .sidenav {
   height: 100%;
   width: 0;
@@ -45,5 +41,4 @@
   position: fixed;
   left: 1rem;
   top: 1rem;
-}
 }
