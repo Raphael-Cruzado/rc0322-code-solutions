@@ -13,7 +13,7 @@ class App extends React.Component {
   componentDidMount() {
     fetch('https://jsonplaceholder.typicode.com/users', { method: 'GET' })
       .then(res => res.json())
-      // .then(users => console.log(users))
+    // .then(users => console.log(users))
       .then(users => this.setState({ users: users, isLoading: false }))
       .catch(err => console.error(err));
   }
