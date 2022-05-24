@@ -1,0 +1,27 @@
+.container {
+  display: flex;
+  justify-content: center;
+}
+
+.wrapper {
+  width: 25rem;
+  padding: 1rem;
+}
+
+h3,
+p {
+  border: 1px solid black;
+  padding: 10px;
+  margin: 3px;
+  border-radius: 4px;
+}
+
+.shrink {
+  display: none;
+}
+
+.unshrink {
+  display: block;
+  overflow: hidden;
+  transition: 0.5s;
+}
