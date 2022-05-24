@@ -14,7 +14,7 @@ class Carousel extends React.Component {
           <div className='column-1'>
             <img src="./images/batman.png" alt="batman" id='batman' />
             <div className='circles'>
-              <span className='dot shaded'></span>
+              <span className='dot shade'></span>
               <span className='dot'></span>
               <span className='dot'></span>
               <span className='dot'></span>
