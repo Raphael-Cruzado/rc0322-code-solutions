@@ -7,8 +7,6 @@ const expressStatic = express.static(join);
 console.log('static:', expressStatic);
 app.use(expressStatic);
 
-// app.get();
-
 app.listen(3000, () => {
   console.log('listening to Port: 3000');
 });
