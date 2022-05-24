@@ -12,7 +12,7 @@ class Carousel extends React.Component {
         <div className='wrapper'>
           <span><i className="arrow" id='left'></i></span>
           <div className='column-1'>
-            <img src="./images/batman.png" alt="batman" id='batman' />
+            <img src="./images/batman.png" alt="image" id='image' />
             <div className='circles'>
               <span className='dot shade'></span>
               <span className='dot'></span>
