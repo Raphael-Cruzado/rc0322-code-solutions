@@ -4,7 +4,6 @@ const app = express();
 
 const join = path.join(__dirname, '/public');
 const expressStatic = express.static(join);
-console.log('static:', expressStatic);
 app.use(expressStatic);
 
 app.listen(3000, () => {
