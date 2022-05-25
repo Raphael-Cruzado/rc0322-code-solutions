@@ -43,40 +43,22 @@ export default class App extends React.Component {
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.string
+      body: JSON.stringify(oppositeComplete)
     })
-    .then(res => res.json())
-    .then(data => {
-      console.log(data)
-      // const replaceArray = this.state.todos.map(todo =>)
-    });
-  }
-
-    /**
-     * Find the index of the todo with the matching todoId in the state array.
-     * Get its "isCompleted" status.
-     * Make a new object containing ONE PROPERTY: the opposite "isCompleted" status.
-     * Use fetch to send a PATCH request to `/api/todos/${todoId}`
-     * Then 😉, once the response JSON is received and parsed,
-     *   - create a shallow copy of the todos array from state
-     *   - replace the old todo with the todo received from the server
-     *   - replace the old todos in the state with the new one (you know the index).
-     *
-     * NOTE: "toggle" means to flip back and forth, so clicking a todo
-     * in the list repeatedly should "toggle" its isCompleted status back and forth.
-     *
-     * DO NOT try to calculate the index of the todo by subtracting 1 from the id.
-     *
-     * DO NOT MUTATE the original state array, nor any objects within it.
-     * https://reactjs.org/docs/optimizing-performance.html#the-power-of-not-mutating-data
-     *
-     * TIP: Be sure to SERIALIZE the updates in the body with JSON.stringify()
-     * And specify the "Content-Type" header as "application/json"
-     */
+      .then(res => res.json())
+      .then(data => {
+        const updatedTodos = this.state.todos.map(todo => {
+          if (todo.todoId === data.todoId) {
+            return data;
+          } else {
+            return todo;
+          }
+        });
+        this.setState({ todos: updatedTodos });
+      });
   }
 
   render() {
-    console.log(this.state.todos);
     return (
       <div className="container">
         <div className="row">
