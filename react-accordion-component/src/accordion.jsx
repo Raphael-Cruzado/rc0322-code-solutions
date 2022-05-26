@@ -3,7 +3,6 @@ import React from 'react';
 class Accordion extends React.Component {
   constructor(props) {
     super(props);
-    // const { languages } = props;
     this.state = { header1: false, header2: false, header3: false };
   }
 
