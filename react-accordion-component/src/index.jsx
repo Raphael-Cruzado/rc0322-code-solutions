@@ -29,4 +29,4 @@ const languages = [
 const container = document.querySelector('#root');
 const root = ReactDOM.createRoot(container);
 
-root.render(<Accordion languages={languages}/>);
+root.render(<Accordion languages={languages} />);
