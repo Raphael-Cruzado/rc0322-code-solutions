@@ -79,10 +79,7 @@ app.get('/api/grades/:gradeId', (req, res, next) => {
 app.put('/api/grades/:gradeId', (req, res, next) => {
   const gradeId = Number(req.params.gradeId);
   if (!Number.isInteger(gradeId) || gradeId < 1) {
-    res.status(400).json({
-      error: 'grade must be a positive integer'
-    });
-    return;
+    throw new ClientError(400, 'grade must be a positive integer');
   }
   const { name, course } = req.body;
   const score = Number(req.body.score);
