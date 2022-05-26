@@ -3,6 +3,7 @@ import React from 'react';
 class Accordion extends React.Component {
   constructor(props) {
     super(props);
+    // const { languages } = props;
     this.state = { header1: false, header2: false, header3: false };
   }
 
@@ -14,7 +15,7 @@ class Accordion extends React.Component {
       this.setState({ header1: false });
     }
 
-    if (e.target.innerText === 'Cascading Style Sheet') {
+    if (e.target.innerText === 'Cascading Style Sheets') {
       this.setState({ header2: true });
     }
     if (this.state.header2 === true) {
@@ -51,20 +52,12 @@ class Accordion extends React.Component {
     return (
       <div className='container'>
         <div className='wrapper'>
-          <h3 onClick={this.handleHeader.bind(this)}>Hypertext Markup Language</h3>
-          <p className={shrink1}>Hypertext Markup Language (HTML) is the standard markup language for creating web pages and web
-            applications. With Cascading Style Sheets (CSS) JavaScript, it forms a triad of cornerstone technologies
-            for the World Wide Web.
-          </p>
-          <h3 onClick={this.handleHeader.bind(this)}>Cascading Style Sheet</h3>
-          <p className={shrink2}>Cascading Stule Sheets (CSS) is a style sheet language used for describing the presentation of a
-          document written in a markup language like HTML. CSS is a cornerstone technology of the Worl Wide Web. alongside HTML and Javascript
-          </p>
-          <h3 onClick={this.handleHeader.bind(this)}>JavaScript</h3>
-          <p className={shrink3}>JavaScript, often abbreviated as JS, is a high-level, interpreted programming laganuage that confroms to the ECMAscript
-            specification. JavaScript has curly bracket syntax, dynamic typing, prototyped-based object-orientation and first-class
-            functions.
-          </p>
+          <h3 onClick={this.handleHeader.bind(this)}>{this.props.languages[0].title}</h3>
+          <p className={shrink1}>{this.props.languages[0].text}</p>
+          <h3 onClick={this.handleHeader.bind(this)}>{this.props.languages[1].title}</h3>
+          <p className={shrink2}>{this.props.languages[1].text}</p>
+          <h3 onClick={this.handleHeader.bind(this)}>{this.props.languages[2].title}</h3>
+          <p className={shrink3}>{this.props.languages[2].text}</p>
         </div>
       </div>
     );
