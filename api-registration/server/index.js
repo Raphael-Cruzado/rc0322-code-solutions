@@ -24,20 +24,22 @@ app.post('/api/auth/sign-up', (req, res, next) => {
     throw new ClientError(400, 'username and password are required fields');
   }
 
-  /* your code starts here */
+argon2.hash(password)
+  .then(hashedPassword => {
+    const sql = `
+    insert into "users" ("username", "hashedPassword")
+    values ($1, $2)
+    returning "userId", "username", "createdAt"
+    `;
 
-  /**
-   * Hash the user's password with `argon2.hash()`
-   * Then, 😉
-   *   Insert the user's "username" and "hashedPassword" into the "users" table.
-   *   Then, 😉
-   *     Respond to the client with a 201 status code and the new user's "userId", "username", and "createdAt" timestamp.
-   *   Catch any errors.
-   * Catch any errors.
-   *
-   * Hint: Insert statements can include a `returning` clause to retrieve the insterted row(s).
-   */
-
+    const params = [username, hashedPassword];
+    return db.query(sql, params);
+  })
+  .then(result => {
+    const [newUser] = result.rows;
+    res.status(201).json(newUser);
+  })
+  .catch(err => next(err));
 });
 
 app.use(errorMiddleware);
