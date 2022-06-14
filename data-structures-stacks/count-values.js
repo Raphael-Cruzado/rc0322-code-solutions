@@ -1,9 +1,9 @@
 /* exported countValues */
 
 function countValues(stack) {
-  stack.print();
+  let count = 0;
+  while (typeof stack.pop !== 'undefined') {
+    count++;
+  }
+  return count;
 }
-
-// const stackArray = [];
-// stackArray.push(stack.pop());
-// console.log(stackArray);
